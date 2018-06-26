@@ -1,10 +1,11 @@
 import dlib
 import cv2
+from config import args
 
 class FaceDetector:
     def __init__(self):
         self.detector = dlib.get_frontal_face_detector()
-        self.maxWidth = 250
+        self.maxWidth = args["face_detector_max_width"]
     
     # required info["gray"]
     def workon(self, frame, info):

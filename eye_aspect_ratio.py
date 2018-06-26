@@ -1,12 +1,13 @@
 from scipy.spatial import distance
 from face_decorator import allEAR
+from config import args
 
 class EyeAspectRatio:
     def __init__(self):
         self.blinks = 0
         self.counter = 0
-        self.thres = 0.3
-        self.counter_thres = 3
+        self.thres = args["ear_thres"]
+        self.counter_thres = args["ear_counter_thres"]
     
     def workon(self, frame, info):
         info["leftEAR"] = [ self.computeEAR(l) for l in info["leftEye"] ]

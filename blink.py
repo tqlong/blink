@@ -7,10 +7,7 @@ from face_marker import FaceMarker
 from face_decorator import allEAR
 from face_decorator import FaceDecorator
 from eye_aspect_ratio import EyeAspectRatio
-
-args = {"path": "blink_detection_demo.mp4",
-        "display": "Blink App",
-        "landmark_model": "shape_predictor_68_face_landmarks.dat"}
+from config import args
 
 vs = VideoStream(args["path"]).start()
 workers = [ GrayConverter(), FaceDetector(), FaceMarker(args["landmark_model"]), EyeAspectRatio(), FaceDecorator() ]
